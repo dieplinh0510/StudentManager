@@ -1,10 +1,13 @@
 package com.example.studentmanager.entity;
 
-import jakarta.persistence.*;
+import com.example.studentmanager.entity.base.AbstractAuditingEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Nationalized;
+
+import javax.persistence.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,17 +15,15 @@ import lombok.Setter;
 @Getter
 @Entity
 @Table(name = "notifications")
-public class Notification {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int notificationId;
+public class Notification extends AbstractAuditingEntity {
+  @Nationalized
   private String subject;
+  @Nationalized
   private String content;
-  private boolean isRead;
-  private int type;
+  private Boolean isRead = false;
+  private Integer type;
 
-
-  @ManyToOne(cascade = CascadeType.MERGE, fetch =  FetchType.EAGER)
+  @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
   @JoinColumn(name = "user_id")
   private User user;
 

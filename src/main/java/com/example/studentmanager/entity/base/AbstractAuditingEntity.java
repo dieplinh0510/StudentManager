@@ -1,7 +1,5 @@
 package com.example.studentmanager.entity.base;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
@@ -18,7 +17,6 @@ import java.sql.Timestamp;
 @Setter
 @Getter
 public abstract class AbstractAuditingEntity implements Serializable {
-  @JsonProperty("id")
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -35,11 +33,11 @@ public abstract class AbstractAuditingEntity implements Serializable {
   @Column(name = "last_modified_by")
   private Long lastModifiedBy;
 
-  @CreationTimestamp
   @Column(name = "created_date")
+  @CreationTimestamp
   private Timestamp createdDate;
 
-  @UpdateTimestamp
   @Column(name = "last_modified_date")
+  @UpdateTimestamp
   private Timestamp lastModifiedDate;
 }

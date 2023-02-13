@@ -1,12 +1,14 @@
 package com.example.studentmanager.entity;
 
+import com.example.studentmanager.entity.base.AbstractAuditingEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Nationalized;
 
+import javax.persistence.*;
 import java.util.List;
 
 @NoArgsConstructor
@@ -15,19 +17,19 @@ import java.util.List;
 @Getter
 @Entity
 @Table(name = "semester")
-public class Semester {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int semesterId;
-  private String semesterName;
+public class Semester extends AbstractAuditingEntity {
+
+  @Nationalized
+  private String name;
 
   // subject
-  @OneToMany(cascade =  CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "semester")
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "semester")
   @JsonIgnore
   private List<Subject> subjects;
 
   // student_semester
-  @OneToMany(cascade =  CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "semester")
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "semester")
   @JsonIgnore
   private List<StudentSemester> studentSemesters;
+
 }

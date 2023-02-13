@@ -1,28 +1,28 @@
 package com.example.studentmanager.entity;
 
 
-import jakarta.persistence.*;
+import com.example.studentmanager.entity.base.AbstractAuditingEntity;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.TypeDef;
 
-import java.sql.Timestamp;
+import javax.persistence.*;
+import java.util.Date;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Setter
 @Getter
 @Entity
-//@TypeDef(name = "json", typeClass = JsonStringType.class)
-public class Token {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int tokenId;
-  private int value;
-  private Timestamp expierTime;
+//@Table(name = "tokens")
+@TypeDef(name = "json", typeClass = JsonStringType.class)
+public class Token extends AbstractAuditingEntity {
+  private String value;
+  private Date expireTime;
 
-  @ManyToOne(cascade = CascadeType.MERGE, fetch =  FetchType.EAGER)
+  @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
   @JoinColumn(name = "user_id")
   private User user;
 
