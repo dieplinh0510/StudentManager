@@ -1,6 +1,6 @@
 package com.example.studentmanager.config.exception;
 
-import com.example.studentmanager.Constant.UserMessageConstant;
+import com.example.studentmanager.constant.UserMessageConstant;
 import com.example.studentmanager.base.RestData;
 import com.example.studentmanager.base.VsResponseUtil;
 import org.apache.commons.logging.Log;

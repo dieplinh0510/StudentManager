@@ -1,5 +1,6 @@
 package com.example.studentmanager.entity;
 
+import com.example.studentmanager.constant.AuthenticationProvider;
 import com.example.studentmanager.entity.base.AbstractAuditingEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,8 @@ import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
@@ -18,12 +21,16 @@ import java.util.List;
 @AllArgsConstructor
 @Setter
 @Getter
-public class User extends AbstractAuditingEntity {
+public class User extends AbstractAuditingEntity implements Serializable {
 
+  @Nationalized
   private String name;
   private Date dateOfBirthday;
-  private String phoneNumber;
+  private String phone;
+  @Email
+  @Column(unique = true)
   private String email;
+  @JsonIgnore
   private String password;
   @Nationalized
   private String homeTown;
@@ -31,16 +38,16 @@ public class User extends AbstractAuditingEntity {
   private String classs;
   private Integer course;
   private String avatar;
+  @Nationalized
+  private String gender;
 
-  //role
+  @Enumerated(EnumType.STRING)
+  private AuthenticationProvider authProvider;
+  //link to table Role
+
   @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
   @JoinColumn(name = "role_id")
   private Role role;
-
-  // token
-  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
-  @JsonIgnore
-  private List<Token> tokens;
 
   // notification
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
@@ -61,4 +68,5 @@ public class User extends AbstractAuditingEntity {
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
   @JsonIgnore
   private List<Finance> finances;
+
 }

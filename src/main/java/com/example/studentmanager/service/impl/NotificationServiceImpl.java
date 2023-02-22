@@ -1,6 +1,6 @@
 package com.example.studentmanager.service.impl;
 
-import com.example.studentmanager.Constant.TypeNotification;
+import com.example.studentmanager.constant.TypeNotification;
 import com.example.studentmanager.config.exception.NotFoundException;
 import com.example.studentmanager.dto.NotificationDTO;
 import com.example.studentmanager.entity.Notification;

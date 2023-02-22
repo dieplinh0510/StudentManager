@@ -1,7 +1,7 @@
 package com.example.studentmanager.base;
 
-import com.example.studentmanager.Constant.AuthorityConstant;
-import com.example.studentmanager.Constant.UserMessageConstant;
+import com.example.studentmanager.constant.AuthorityConstant;
+import com.example.studentmanager.constant.UserMessageConstant;
 import com.example.studentmanager.config.exception.VsException;
 import com.nimbusds.jwt.SignedJWT;
 import org.apache.commons.lang3.StringUtils;

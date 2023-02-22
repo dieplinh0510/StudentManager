@@ -50,6 +50,18 @@ public class UserServiceImpl implements UserService {
     return new TrueFalseResponse(true);
   }
 
+  @Override
+  public User save(User user) {
+    return userRepository.save(user);
+  }
+
+  @Override
+  public User getUserByEmail(String email) {
+    User user = userRepository.findByEmail(email);
+    checkNotFoundUser(user);
+    return user;
+  }
+
   public void checkNotFoundUser(User user) {
     if (user == null) {
       throw new NotFoundException("Not found user");

@@ -1,10 +1,9 @@
 package com.example.studentmanager.controller;
 
-import com.example.studentmanager.Constant.UrlConstant;
+import com.example.studentmanager.constant.UrlConstant;
 import com.example.studentmanager.base.RestApiV1;
 import com.example.studentmanager.base.VsResponseUtil;
 import com.example.studentmanager.dto.CalendarDTO;
-import com.example.studentmanager.entity.Calendar;
 import com.example.studentmanager.service.CalendarService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

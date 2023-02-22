@@ -40,4 +40,6 @@ public abstract class AbstractAuditingEntity implements Serializable {
   @Column(name = "last_modified_date")
   @UpdateTimestamp
   private Timestamp lastModifiedDate;
+
+  private Boolean statusBase = Boolean.FALSE;
 }

@@ -1,4 +1,4 @@
-package com.example.studentmanager.Constant;
+package com.example.studentmanager.constant;
 
 public enum TypeNotification {
   SCHOLARSHIP("SCHOLARSHIP", 1), LEARNMORE("LEARNMORE", 2), DEBT("DEBT", 3),
@@ -15,6 +15,7 @@ public enum TypeNotification {
   public String getKey() {
     return key;
   }
+
   public Integer getValue() {
     return value;
   }

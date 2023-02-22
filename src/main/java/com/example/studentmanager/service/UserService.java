@@ -12,4 +12,7 @@ public interface UserService {
   User changeUserById(Long userId, UserDTO userDTO);
 
   TrueFalseResponse deleteUserById(Long userId);
+
+  User save(User user);
+  User getUserByEmail(String email);
 }

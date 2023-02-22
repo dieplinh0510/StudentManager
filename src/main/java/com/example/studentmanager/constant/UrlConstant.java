@@ -1,4 +1,4 @@
-package com.example.studentmanager.Constant;
+package com.example.studentmanager.constant;
 
 
 public class UrlConstant {
@@ -47,7 +47,7 @@ public class UrlConstant {
     public static final String CREATE_SEMESTER = PRE_FIX + "/create";
     public static final String CHANGE_SEMESTER = PRE_FIX + "/change/{semesterId}";
     public static final String DELETE_SEMESTER = PRE_FIX + "/delete/{semesterId}";
-    public static final String GET_SUBJECTS_INSEMESTER = PRE_FIX+ "subjectInSemester/{semesterId}";
+    public static final String GET_SUBJECTS_INSEMESTER = PRE_FIX + "subjectInSemester/{semesterId}";
 
     public Semester() {
     }
@@ -60,6 +60,10 @@ public class UrlConstant {
     public static final String VERIFY_SIGNUP = SIGNUP + "/verify";
     public static final String LOGOUT = PRE_FIX + "/logout/{id}";
     public static final String VALIDATE = PRE_FIX + "/validate";
+    public static final String FORGOT_PASS = PRE_FIX + "/recover";
+    public static final String VERIFY_FORGOT_PASS = FORGOT_PASS + "/verify";
+    public static final String FORGOT_PASS_SUCCESS = FORGOT_PASS + "/password";
+
     public Auth() {
     }
   }
@@ -87,7 +91,7 @@ public class UrlConstant {
     }
   }
 
-  public static class StudentSubject{
+  public static class StudentSubject {
     public static final String PRE_FIX = "/studentsubject";
     public static final String GET_ALL_STUDENTSUBJECT = PRE_FIX;
     public static final String GET_STUDENTSUBJECT = PRE_FIX + "/{studentSubjectId}";

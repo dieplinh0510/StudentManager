@@ -1,4 +1,4 @@
-package com.example.studentmanager.Constant;
+package com.example.studentmanager.constant;
 
 public class UserMessageConstant {
   public static final String ERR_EXCEPTION_GENERAL = "Có lỗi đã sảy ra";

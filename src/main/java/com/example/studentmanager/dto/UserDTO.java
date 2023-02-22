@@ -13,16 +13,16 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDTO {
-    @Nationalized
-    private String name;
-    private Date dateOfBirthday;
-    private String phoneNumber;
-    private String email;
-    private String password;
-    @Nationalized
-    private String homeTown;
-    private String branch;
-    private String classs;
-    private Integer course;
-    private String avatar;
+  @Nationalized
+  private String name;
+  private Date dateOfBirthday;
+  private String phone;
+  private String email;
+  private String password;
+  @Nationalized
+  private String homeTown;
+  private String branch;
+  private String classs;
+  private Integer course;
+  private String avatar;
 }

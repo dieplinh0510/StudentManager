@@ -1,6 +1,6 @@
 package com.example.studentmanager.controller;
 
-import com.example.studentmanager.Constant.UrlConstant;
+import com.example.studentmanager.constant.UrlConstant;
 import com.example.studentmanager.base.RestApiV1;
 import com.example.studentmanager.base.VsResponseUtil;
 import com.example.studentmanager.dto.RoleDTO;
